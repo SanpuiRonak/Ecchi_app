@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class activity2 extends AppCompatActivity {
 
@@ -37,6 +40,22 @@ public class activity2 extends AppCompatActivity {
         i.setImageResource(img[index_img]);
         String s1 ="ech1";
 
+        FloatingActionButton f = findViewById(R.id.floatingActionButton);
+        f.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onTap();
+            }
+        });
+        }
+
+
+
+
+    public void onTap() {
+
+    Intent it =new Intent(this,activity2.class);
+    startActivity(it);
     }
     public int getRandom(int n)
     {
