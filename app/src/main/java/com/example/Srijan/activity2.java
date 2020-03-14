@@ -13,16 +13,29 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class activity2 extends AppCompatActivity {
 
+    public static final String f= "Key2";
+    public String s;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
-        TextView t= findViewById(R.id.textView);
-        Intent intent=getIntent();
-        String s=intent.getStringExtra(MainActivity.key);
+        setCotent();
+        FloatingActionButton f = findViewById(R.id.floatingActionButton);
+        f.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCotent();
+            }
+        });
+        }
 
-        //Add your Quotations here
+    public void setCotent()
+    {
+        Intent intent=getIntent();
+        s = intent.getStringExtra(MainActivity.key);
+        TextView t= findViewById(R.id.textView);
         String[] arr ={
                 "Harder "+s+" push it harder!",
                 s+ " Senpai Onegai!"
@@ -38,25 +51,9 @@ public class activity2 extends AppCompatActivity {
         t.setText(arr[index]);
         ImageView i=findViewById(R.id.echi0);
         i.setImageResource(img[index_img]);
-        String s1 ="ech1";
 
-        FloatingActionButton f = findViewById(R.id.floatingActionButton);
-        f.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onTap();
-            }
-        });
-        }
-
-
-
-
-    public void onTap() {
-
-    Intent it =new Intent(this,activity2.class);
-    startActivity(it);
     }
+
     public int getRandom(int n)
     {
         return (int)(Math.random()*n);
